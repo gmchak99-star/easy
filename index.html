@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>영어회화 실전 평서문 1,000회 트레이너 (Brave 백그라운드 완벽 지원)</title>
+  <title>영어회화 실전 평서문 1,000회 (Brave 백그라운드 스트리밍)</title>
   <style>
     * { box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 16px 12px 100px; }
@@ -33,10 +33,6 @@
     .status-badge { font-size: 0.82rem; color: #34d399; font-weight: bold; min-width: 85px; text-align: right; }
     .stt-feedback { width: 100%; margin-top: 8px; font-size: 0.85rem; color: #facc15; }
 
-    /* 유튜브형 백그라운드 유지 미디어 파이프라인 (보이지 않게 실행) */
-    #bg-video { width: 1px; height: 1px; opacity: 0.01; position: absolute; pointer-events: none; }
-    #bg-canvas { display: none; }
-
     /* OLED 절전 암전 커튼 */
     #dark-curtain { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000000; z-index: 999999; color: #22c55e; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
     .floating-bar { position: fixed; bottom: 16px; right: 16px; z-index: 999; }
@@ -46,7 +42,7 @@
 <body>
 
   <h2>☕ 회화 평서문 1,000회 트레이너</h2>
-  <div class="sub">Brave / 모바일 백그라운드 유지 엔진 탑재</div>
+  <div class="sub">HTML5 실제 오디오 스트리밍 탑재 (화면 꺼짐 백그라운드 완벽 지속)</div>
 
   <div class="top-bar">
     <div style="font-size:0.88rem; color:#94a3b8;" id="global-status">🎧 재생 대기 중</div>
@@ -58,9 +54,8 @@
 
   <div id="pattern-list"></div>
 
-  <!-- 백그라운드 동영상 스트림 요소 -->
-  <canvas id="bg-canvas" width="300" height="300"></canvas>
-  <video id="bg-video" playsinline muted autoplay></video>
+  <!-- 유튜브와 동일하게 OS가 백그라운드를 유지하는 실제 HTML5 오디오 요소 -->
+  <audio id="stream-audio" preload="auto"></audio>
 
   <!-- 플로팅 화면 절전 버튼 -->
   <div class="floating-bar">
@@ -192,58 +187,10 @@
 
     const TARGET_REPEAT = 1000;
     let isStopped = false;
-    let loopTimeout = null;
-    let watchdogTimer = null;
     let lastTapTime = 0;
     let maleVoice = null;
     let femaleVoice = null;
-
-    /* [핵심] 가상 비디오 스트림 & 백그라운드 미디어 세션 유지 */
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
-    const video = document.getElementById('bg-video');
-
-    function updateMediaCanvas(text, count) {
-      ctx.fillStyle = '#0f172a';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#38bdf8';
-      ctx.font = 'bold 18px sans-serif';
-      ctx.fillText('English Shadowing', 20, 40);
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '14px sans-serif';
-      ctx.fillText(text.slice(0, 25), 20, 80);
-      ctx.fillStyle = '#34d399';
-      ctx.font = 'bold 20px sans-serif';
-      ctx.fillText(`${count} / 1000`, 20, 130);
-    }
-    updateMediaCanvas("Ready", 0);
-
-    try {
-      const stream = canvas.captureStream(10);
-      video.srcObject = stream;
-    } catch (e) {}
-
-    // 무음 오디오 세션 락
-    const silentAudio = new Audio("data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==");
-    silentAudio.loop = true;
-
-    function lockBackgroundMedia(titleText) {
-      video.play().catch(() => {});
-      silentAudio.play().catch(() => {});
-
-      if ('mediaSession' in navigator) {
-        navigator.mediaSession.metadata = new MediaMetadata({
-          title: titleText,
-          artist: '실전 영어회화 1000회',
-          album: 'Brave Background Engine'
-        });
-      }
-    }
-
-    function unlockBackgroundMedia() {
-      silentAudio.pause();
-      video.pause();
-    }
+    const audioElement = document.getElementById('stream-audio');
 
     function initVoices() {
       const v = window.speechSynthesis.getVoices();
@@ -284,17 +231,55 @@
       else { btn.dataset.val = '0.85'; btn.innerText = '0.85x'; }
     }
 
-    // 1개 문장 1000회 단독 루프
+    // 유튜브와 동일한 OS 잠금화면 미디어 컨트롤러 등록
+    function setupMediaSession(titleText, count) {
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: `[${count}/1000] ${titleText}`,
+          artist: 'Brave 백그라운드 섀도잉',
+          album: '실전 평서문 16패턴'
+        });
+      }
+    }
+
+    // [핵심 엔진] 실제 HTML5 미디어 스트림 재생 함수
+    function playStreamSpeech(text, speed, onDone) {
+      // 1. Google 실시간 오디오 스트림 URL (Brave/Android가 YouTube처럼 진짜 오디오로 인식)
+      const streamUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=${encodeURIComponent(text)}`;
+      audioElement.src = streamUrl;
+      audioElement.playbackRate = speed;
+
+      audioElement.onended = function() {
+        if (!isStopped) onDone();
+      };
+
+      audioElement.onerror = function() {
+        // 네트워크 차단 시 Web Speech API로 자동 백업
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US';
+        u.rate = speed;
+        u.onend = function() { if (!isStopped) onDone(); };
+        window.speechSynthesis.speak(u);
+      };
+
+      audioElement.play().catch(() => {
+        // 모바일 자동재생 정책 방어 백업
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US';
+        u.rate = speed;
+        u.onend = function() { if (!isStopped) onDone(); };
+        window.speechSynthesis.speak(u);
+      });
+    }
+
+    // 단일 문장 1,000회 루프
     function start1000Loop(text, sid, gid, spid) {
       globalStop();
       isStopped = false;
-      lockBackgroundMedia(text);
 
       let count = 0;
       const status = document.getElementById(sid);
-      const gender = document.getElementById(gid).dataset.val;
       const speed = parseFloat(document.getElementById(spid).dataset.val);
-      const voice = (gender === 'female') ? femaleVoice : maleVoice;
 
       document.getElementById('global-status').innerText = `🎧 단일 문장 1000회 재생 중`;
       document.getElementById('blackout-title').innerText = text;
@@ -305,7 +290,6 @@
             status.innerText = "1,000회 완료";
             document.getElementById('blackout-counter').innerText = "완료";
             document.getElementById('global-status').innerText = "🎧 완료됨";
-            unlockBackgroundMedia();
           }
           return;
         }
@@ -313,56 +297,26 @@
         count++;
         status.innerText = `${count} / ${TARGET_REPEAT}`;
         document.getElementById('blackout-counter').innerText = `${count} / ${TARGET_REPEAT}`;
-        updateMediaCanvas(text, count);
+        setupMediaSession(text, count);
 
-        // 안드로이드/Brave 백그라운드 TTS 먹통 방지용 resume
-        window.speechSynthesis.resume();
-
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'en-US';
-        if (voice) u.voice = voice;
-        u.rate = speed;
-
-        // 백그라운드 프리징 감시 타이머 (와치독)
-        clearTimeout(watchdogTimer);
-        watchdogTimer = setTimeout(() => {
+        playStreamSpeech(text, speed, () => {
           if (!isStopped && count < TARGET_REPEAT) {
-            window.speechSynthesis.cancel();
-            window.speechSynthesis.resume();
-            loop();
-          }
-        }, 10000);
-
-        u.onend = function() {
-          clearTimeout(watchdogTimer);
-          if (!isStopped && count < TARGET_REPEAT) {
-            const gap = Math.max(500, Math.floor(800 / speed));
-            loopTimeout = setTimeout(loop, gap);
+            const gap = Math.max(350, Math.floor(650 / speed));
+            setTimeout(loop, gap);
           } else if (count >= TARGET_REPEAT) {
             status.innerText = "1,000회 완료";
             document.getElementById('blackout-counter').innerText = "완료";
-            unlockBackgroundMedia();
           }
-        };
-
-        u.onerror = function() {
-          clearTimeout(watchdogTimer);
-          if (!isStopped && count < TARGET_REPEAT) {
-            loopTimeout = setTimeout(loop, 600);
-          }
-        };
-
-        window.speechSynthesis.speak(u);
+        });
       }
 
-      setTimeout(loop, 300);
+      loop();
     }
 
     // 전체 순환 루프
     function startAllSequential() {
       globalStop();
       isStopped = false;
-      lockBackgroundMedia("전체 문장 순환 1000회");
 
       const allSentences = [];
       dataset.forEach((p, pIdx) => {
@@ -370,83 +324,54 @@
           allSentences.push({
             text: s.en,
             sid: `st_${pIdx}_${sIdx}`,
-            gid: `gd_${pIdx}_${sIdx}`,
             spid: `sp_${pIdx}_${sIdx}`
           });
         });
       });
 
-      let currentSentenceIdx = 0;
+      let currentIdx = 0;
 
       function playNextSentence() {
         if (isStopped) return;
-        if (currentSentenceIdx >= allSentences.length) {
-          currentSentenceIdx = 0;
+        if (currentIdx >= allSentences.length) {
+          currentIdx = 0; // 전 문장 완료 후 처음부터 다시 순환
         }
 
-        const item = allSentences[currentSentenceIdx];
+        const item = allSentences[currentIdx];
         const status = document.getElementById(item.sid);
-        const gender = document.getElementById(item.gid).dataset.val;
         const speed = parseFloat(document.getElementById(item.spid).dataset.val);
-        const voice = (gender === 'female') ? femaleVoice : maleVoice;
-
         let count = 0;
-        document.getElementById('global-status').innerText = `🔁 전체 순환: [${currentSentenceIdx + 1}/${allSentences.length}]`;
-        document.getElementById('blackout-title').innerText = `[${currentSentenceIdx + 1}/${allSentences.length}] ${item.text}`;
+
+        document.getElementById('global-status').innerText = `🔁 전체 순환 중: [${currentIdx + 1}/${allSentences.length}]`;
+        document.getElementById('blackout-title').innerText = `[${currentIdx + 1}/${allSentences.length}] ${item.text}`;
 
         function innerLoop() {
           if (isStopped) return;
           if (count >= TARGET_REPEAT) {
             status.innerText = "1,000회 완료";
-            currentSentenceIdx++;
-            loopTimeout = setTimeout(playNextSentence, 900);
+            currentIdx++;
+            setTimeout(playNextSentence, 800);
             return;
           }
 
           count++;
           status.innerText = `${count} / ${TARGET_REPEAT}`;
           document.getElementById('blackout-counter').innerText = `${count} / ${TARGET_REPEAT}`;
-          updateMediaCanvas(item.text, count);
+          setupMediaSession(item.text, count);
 
-          window.speechSynthesis.resume();
-
-          const u = new SpeechSynthesisUtterance(item.text);
-          u.lang = 'en-US';
-          if (voice) u.voice = voice;
-          u.rate = speed;
-
-          clearTimeout(watchdogTimer);
-          watchdogTimer = setTimeout(() => {
+          playStreamSpeech(item.text, speed, () => {
             if (!isStopped && count < TARGET_REPEAT) {
-              window.speechSynthesis.cancel();
-              window.speechSynthesis.resume();
-              innerLoop();
-            }
-          }, 10000);
-
-          u.onend = function() {
-            clearTimeout(watchdogTimer);
-            if (!isStopped && count < TARGET_REPEAT) {
-              const gap = Math.max(500, Math.floor(800 / speed));
-              loopTimeout = setTimeout(innerLoop, gap);
+              const gap = Math.max(350, Math.floor(650 / speed));
+              setTimeout(innerLoop, gap);
             } else if (count >= TARGET_REPEAT) {
               status.innerText = "1,000회 완료";
-              currentSentenceIdx++;
-              loopTimeout = setTimeout(playNextSentence, 900);
+              currentIdx++;
+              setTimeout(playNextSentence, 800);
             }
-          };
-
-          u.onerror = function() {
-            clearTimeout(watchdogTimer);
-            if (!isStopped && count < TARGET_REPEAT) {
-              loopTimeout = setTimeout(innerLoop, 600);
-            }
-          };
-
-          window.speechSynthesis.speak(u);
+          });
         }
 
-        setTimeout(innerLoop, 300);
+        innerLoop();
       }
 
       playNextSentence();
@@ -454,10 +379,9 @@
 
     function globalStop() {
       isStopped = true;
-      clearTimeout(loopTimeout);
-      clearTimeout(watchdogTimer);
+      audioElement.pause();
+      audioElement.src = "";
       window.speechSynthesis.cancel();
-      unlockBackgroundMedia();
       document.querySelectorAll('.status-badge').forEach(b => {
         if (b.innerText.includes('/')) b.innerText = "정지됨";
       });
@@ -465,13 +389,14 @@
       document.getElementById('global-status').innerText = "⏹️ 정지됨";
     }
 
+    // 마이크 STT 발음 평가
     function practiceSpeech(targetText, fbid) {
       globalStop();
       const fb = document.getElementById(fbid);
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
       if (!SpeechRecognition) {
-        fb.innerText = "⚠️ 브라우저가 음성 인식을 지원하지 않습니다. (크롬/삼성인터넷 권장)";
+        fb.innerText = "⚠️ 브라우저가 음성 인식을 지원하지 않습니다. (크롬 권장)";
         return;
       }
 
@@ -534,7 +459,7 @@
           const cleanEn = s.en.replace(/'/g, "\\'");
 
           html += `
-            <div class="sentence-row" style="background:#0f172a; border:1px solid #334155; border-radius:8px; padding:12px; margin-bottom:12px;">
+            <div class="sentence-block">
               <div class="ko-box">🇰🇷 ${s.ko}</div>
               <div class="en-box hidden" id="${eid}">🇺🇸 ${s.en}</div>
 
