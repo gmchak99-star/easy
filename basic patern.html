@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>영어회화 실전 평서문 1,000회 트레이너</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 16px 12px 100px; }
+    h2 { text-align: center; font-size: 1.3rem; margin: 12px 0 4px; color: #38bdf8; }
+    .sub { text-align: center; font-size: 0.85rem; color: #94a3b8; margin-bottom: 20px; }
+
+    /* 컨트롤 탑바 */
+    .top-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; background: #1e293b; padding: 12px 14px; border-radius: 10px; margin-bottom: 18px; border: 1px solid #334155; }
+    .top-btn-group { display: flex; gap: 8px; align-items: center; }
+    .top-btn-all { background: #10b981; color: #fff; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; font-size: 0.88rem; cursor: pointer; transition: 0.2s; }
+    .top-btn-all:hover { background: #059669; }
+    .top-btn-stop { background: #e11d48; color: #fff; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; font-size: 0.88rem; cursor: pointer; transition: 0.2s; }
+    .top-btn-stop:hover { background: #be123c; }
+
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .pattern-title { font-size: 1.05rem; font-weight: 700; color: #38bdf8; margin-bottom: 12px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+
+    .sentence-block { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+    .ko-box { font-size: 1.02rem; font-weight: 700; color: #e2e8f0; margin-bottom: 8px; line-height: 1.4; }
+    .en-box { font-size: 1.05rem; font-weight: 600; color: #38bdf8; margin-bottom: 10px; line-height: 1.4; }
+    .en-box.hidden { filter: blur(7px); background: #334155; color: transparent; user-select: none; border-radius: 4px; }
+
+    .ctrl-wrap { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: flex-end; }
+    .btn { cursor: pointer; border: none; border-radius: 6px; padding: 7px 11px; font-size: 0.82rem; font-weight: 600; }
+    .btn-ans { background: #475569; color: #fff; }
+    .btn-opt { background: #334155; color: #cbd5e1; border: 1px solid #475569; }
+    .btn-mic { background: #0284c7; color: #fff; }
+    .btn-play { background: #2563eb; color: #fff; font-weight: 700; }
+    .btn-stop { background: #ef4444; color: #fff; }
+    .status-badge { font-size: 0.82rem; color: #34d399; font-weight: bold; min-width: 85px; text-align: right; }
+    .stt-feedback { width: 100%; margin-top: 8px; font-size: 0.85rem; color: #facc15; }
+
+    /* OLED 절전 화면 오버레이 */
+    #dark-curtain { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000000; z-index: 999999; color: #22c55e; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    .floating-bar { position: fixed; bottom: 16px; right: 16px; z-index: 999; }
+    .btn-float-sleep { background: #0f172a; color: #38bdf8; border: 2px solid #38bdf8; border-radius: 30px; padding: 10px 18px; font-weight: bold; font-size: 0.9rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+  </style>
+</head>
+<body>
+
+  <h2>☕ 회화 평서문 1,000회 집중 트레이너</h2>
+  <div class="sub">1문장 1,000회 섀도잉 루프 & 16문장 자동 연속 순환</div>
+
+  <div class="top-bar">
+    <div style="font-size:0.88rem; color:#94a3b8;" id="global-status">🎧 재생 대기 중</div>
+    <div class="top-btn-group">
+      <button class="top-btn-all" onclick="startAllSequential()">🔁 전체 반복 (순차 1000회)</button>
+      <button class="top-btn-stop" onclick="globalStop()">⏹️ 전체 정지</button>
+    </div>
+  </div>
+
+  <div id="pattern-list"></div>
+
+  <!-- 플로팅 화면 절전 버튼 -->
+  <div class="floating-bar">
+    <button class="btn-float-sleep" onclick="enableBlackout()">🌙 화면 절전 (암전)</button>
+  </div>
+
+  <!-- OLED 순수 블랙 오버레이 -->
+  <div id="dark-curtain" onclick="handleTap()">
+    <div style="font-size: 1.15rem; font-weight: bold; color: #94a3b8; max-width: 85%;" id="blackout-title">섀도잉 루프 진행 중...</div>
+    <div style="font-size: 2.5rem; font-weight: 800; margin: 20px 0;" id="blackout-counter">0 / 1000</div>
+    <div style="color: #64748b; font-size: 0.85rem;">화면을 연속 두 번(더블 탭) 터치하면 화면이 돌아옵니다.</div>
+  </div>
+
+  <script>
+    const dataset = [
+      {
+        pattern: "1. I usually + 동사 (평소 습관·루틴)",
+        sentences: [
+          { en: "I usually work out at the gym after work.", ko: "퇴근하고 보통 헬스장에서 운동해요." },
+          { en: "I usually listen to music to wind down in the evening.", ko: "저녁엔 긴장을 풀려고 주로 음악을 들어요." }
+        ]
+      },
+      {
+        pattern: "2. I think (that) ~ (내 생각·견해 표현)",
+        sentences: [
+          { en: "I think progressive overload is key to muscle growth.", ko: "근성장에는 점진적 과부하가 핵심이라고 생각해요." },
+          { en: "I think speaking out loud is the best way to improve.", ko: "소리 내서 말해보는 게 실력 늘리는 데 최고인 것 같아요." }
+        ]
+      },
+      {
+        pattern: "3. I don't think (that) ~ (완곡한 반대·부정)",
+        sentences: [
+          { en: "I don't think this is going to work out well.", ko: "이 방식이 썩 잘 풀릴 것 같지는 않아요." },
+          { en: "I don't think eating late snacks is good for my diet.", ko: "야식 먹는 건 식단 관리에 별로 안 좋은 것 같아요." }
+        ]
+      },
+      {
+        pattern: "4. I'm interested in ~ (관심사·취미)",
+        sentences: [
+          { en: "I am interested in freediving and deep water training.", ko: "저는 프리다이빙이랑 잠수 훈련에 관심이 많아요." },
+          { en: "I am really interested in learning spoken languages.", ko: "저는 회화 표현 배우는 것에 관심이 아주 많습니다." }
+        ]
+      },
+      {
+        pattern: "5. I prefer ~ (선호도 밝히기)",
+        sentences: [
+          { en: "I prefer drinking iced Americano even in winter.", ko: "저는 겨울에도 아이스 아메리카노 마시는 걸 선호해요." },
+          { en: "I prefer working out early rather than late at night.", ko: "밤늦게보다는 아침 일찍 운동하는 걸 더 좋아해요." }
+        ]
+      },
+      {
+        pattern: "6. I've been + ~ing (요즘 지속 중인 근황)",
+        sentences: [
+          { en: "I have been going to the gym four times a week.", ko: "요즘 일주일에 4번씩 꾸준히 운동하고 있어요." },
+          { en: "I have been practicing conversational English every single day.", ko: "매일 빠짐없이 영어 회화를 연습해오고 있습니다." }
+        ]
+      },
+      {
+        pattern: "7. It takes me + 시간 + to ~ (소요 시간 설명)",
+        sentences: [
+          { en: "It takes me about forty minutes to commute by subway.", ko: "지하철로 출퇴근하는 데 한 40분 정도 걸려요." },
+          { en: "It takes consistent effort to form a good habit.", ko: "좋은 습관을 들이는 데는 꾸준한 노력이 필요하죠." }
+        ]
+      },
+      {
+        pattern: "8. I used to + 동사 (과거의 습관 vs 현재)",
+        sentences: [
+          { en: "I used to skip breakfast, but now I eat light meals.", ko: "예전엔 아침을 거르곤 했는데, 지금은 가볍게 챙겨 먹어요." },
+          { en: "I used to be shy, but I am getting comfortable.", ko: "예전엔 수줍음이 많았는데, 점점 편해지고 있어요." }
+        ]
+      },
+      {
+        pattern: "9. I'm planning to + 동사 (앞으로의 계획)",
+        sentences: [
+          { en: "I am planning to practice speaking at an English cafe.", ko: "영어회화 카페에 가서 말하기 연습을 해볼 계획이에요." },
+          { en: "I am planning to go on a short road trip this weekend.", ko: "이번 주말에 짧게 로드 트립을 다녀올 계획입니다." }
+        ]
+      },
+      {
+        pattern: "10. I'm trying to + 동사 (애쓰는 점)",
+        sentences: [
+          { en: "I am trying to speak English without worrying about mistakes.", ko: "실수 신경 쓰지 않고 영어로 내뱉어보려고 노력 중이에요." },
+          { en: "I am trying to keep a strict high protein diet.", ko: "고단백 식단을 철저하게 지켜보려고 애쓰는 중입니다." }
+        ]
+      },
+      {
+        pattern: "11. It seems like ~ (주관적 인상·느낌)",
+        sentences: [
+          { en: "It seems like everyone here is passionate about learning.", ko: "여기 모인 분들 모두 배움에 대한 열정이 대단해 보여요." },
+          { en: "It seems like consistent practice is the real key.", ko: "꾸준한 연습이 진짜 핵심인 것 같아요." }
+        ]
+      },
+      {
+        pattern: "12. That's why ~ (이유와 결과 설명)",
+        sentences: [
+          { en: "That is why I decided to join this meetup today.", ko: "그렇기 때문에 오늘 이 모임에 참석하기로 결심했어요." },
+          { en: "That is why I always track my daily progress.", ko: "그래서 저는 매일의 진행 상황을 항상 기록합니다." }
+        ]
+      },
+      {
+        pattern: "13. I didn't expect to ~ (의외의 사실·반전)",
+        sentences: [
+          { en: "I didn't expect to enjoy speaking English this much.", ko: "영어로 말하는 게 이렇게 재미있을 줄은 미처 몰랐어요." },
+          { en: "I didn't expect the meetup atmosphere to be so friendly.", ko: "모임 분위기가 이렇게 편하고 좋을 줄은 몰랐네요." }
+        ]
+      },
+      {
+        pattern: "14. I feel like ~ (하고 싶은 기분·느낌)",
+        sentences: [
+          { en: "I feel like grabbing an iced coffee after this session.", ko: "이 세션 끝나고 시원한 아이스 커피 한잔 마시고 싶네요." },
+          { en: "I feel like my speaking fluency is gradually improving.", ko: "제 말문이 조금씩 트이고 있는 기분이 듭니다." }
+        ]
+      },
+      {
+        pattern: "15. I'm getting used to ~ (점점 익숙해지는 과정)",
+        sentences: [
+          { en: "I am getting used to speaking in front of people.", ko: "사람들 앞에서 영어로 말하는 것에 점점 익숙해지고 있어요." },
+          { en: "I am getting used to my new daily workout routine.", ko: "새로운 일일 운동 루틴에 점차 몸이 적응하고 있어요." }
+        ]
+      },
+      {
+        pattern: "16. To be honest, ~ (솔직한 심정 밝히기)",
+        sentences: [
+          { en: "To be honest, I was a bit nervous at first.", ko: "솔직히 말씀드리면, 처음엔 살짝 긴장했었어요." },
+          { en: "To be honest, making sentences on the spot is challenging.", ko: "솔직히 그 자리에서 바로 문장을 만드는 건 쉽지 않네요." }
+        ]
+      }
+    ];
+
+    const TARGET_REPEAT = 1000;
+    let isStopped = false;
+    let loopTimeout = null;
+    let lastTapTime = 0;
+    let maleVoice = null;
+    let femaleVoice = null;
+
+    function initVoices() {
+      const v = window.speechSynthesis.getVoices();
+      if (!v || v.length === 0) return;
+      const en = v.filter(x => x.lang.startsWith('en'));
+      maleVoice = en.find(x => /male|david|guy|george/i.test(x.name)) || en[0];
+      femaleVoice = en.find(x => /female|zira|susan|jenny|samantha/i.test(x.name)) || en[en.length - 1] || en[0];
+    }
+    window.speechSynthesis.onvoiceschanged = initVoices;
+    initVoices();
+
+    function toggleAnswer(eid, btn) {
+      const el = document.getElementById(eid);
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        btn.innerText = "🙈 가리기";
+      } else {
+        el.classList.add('hidden');
+        btn.innerText = "👁️ 정답 확인";
+      }
+    }
+
+    function toggleGender(btn) {
+      if (btn.dataset.val === 'male') {
+        btn.dataset.val = 'female';
+        btn.innerText = '👩 여성';
+      } else {
+        btn.dataset.val = 'male';
+        btn.innerText = '👨 남성';
+      }
+    }
+
+    function toggleSpeed(btn) {
+      const v = parseFloat(btn.dataset.val);
+      if (v === 0.85) { btn.dataset.val = '1.0'; btn.innerText = '1.0x'; }
+      else if (v === 1.0) { btn.dataset.val = '1.25'; btn.innerText = '1.25x'; }
+      else if (v === 1.25) { btn.dataset.val = '1.5'; btn.innerText = '1.5x'; }
+      else { btn.dataset.val = '0.85'; btn.innerText = '0.85x'; }
+    }
+
+    // 단일 문장 1,000회 루프
+    function start1000Loop(text, sid, gid, spid) {
+      globalStop();
+      isStopped = false;
+      let count = 0;
+
+      const status = document.getElementById(sid);
+      const gender = document.getElementById(gid).dataset.val;
+      const speed = parseFloat(document.getElementById(spid).dataset.val);
+      const voice = (gender === 'female') ? femaleVoice : maleVoice;
+
+      document.getElementById('global-status').innerText = `🎧 단일 문장 1000회 반복 중`;
+      document.getElementById('blackout-title').innerText = text;
+
+      function loop() {
+        if (isStopped || count >= TARGET_REPEAT) {
+          if (!isStopped) {
+            status.innerText = "1,000회 완료";
+            document.getElementById('blackout-counter').innerText = "완료";
+            document.getElementById('global-status').innerText = "🎧 완료됨";
+          }
+          return;
+        }
+
+        count++;
+        status.innerText = `${count} / ${TARGET_REPEAT}`;
+        document.getElementById('blackout-counter').innerText = `${count} / ${TARGET_REPEAT}`;
+
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US';
+        if (voice) u.voice = voice;
+        u.rate = speed;
+
+        u.onend = function() {
+          if (!isStopped && count < TARGET_REPEAT) {
+            const gap = Math.max(350, Math.floor(750 / speed));
+            loopTimeout = setTimeout(loop, gap);
+          } else if (count >= TARGET_REPEAT) {
+            status.innerText = "1,000회 완료";
+            document.getElementById('blackout-counter').innerText = "완료";
+          }
+        };
+
+        u.onerror = function() {
+          if (!isStopped && count < TARGET_REPEAT) {
+            loopTimeout = setTimeout(loop, 500);
+          }
+        };
+
+        window.speechSynthesis.speak(u);
+      }
+
+      loop();
+    }
+
+    // 전체 문장 순차적 1,000회 루프 (1번 문장 1000회 -> 2번 문장 1000회 ...)
+    function startAllSequential() {
+      globalStop();
+      isStopped = false;
+
+      // 전체 문장 리스트 수집
+      const allSentences = [];
+      dataset.forEach((p, pIdx) => {
+        p.sentences.forEach((s, sIdx) => {
+          allSentences.push({
+            text: s.en,
+            sid: `st_${pIdx}_${sIdx}`,
+            gid: `gd_${pIdx}_${sIdx}`,
+            spid: `sp_${pIdx}_${sIdx}`
+          });
+        });
+      });
+
+      let currentSentenceIdx = 0;
+
+      function playNextSentence() {
+        if (isStopped) return;
+        if (currentSentenceIdx >= allSentences.length) {
+          currentSentenceIdx = 0; // 전체 완주 후 처음부터 다시 무한 순환
+        }
+
+        const item = allSentences[currentSentenceIdx];
+        const status = document.getElementById(item.sid);
+        const gender = document.getElementById(item.gid).dataset.val;
+        const speed = parseFloat(document.getElementById(item.spid).dataset.val);
+        const voice = (gender === 'female') ? femaleVoice : maleVoice;
+
+        let count = 0;
+        document.getElementById('global-status').innerText = `🔁 전체 순환 중: [${currentSentenceIdx + 1}/${allSentences.length}]`;
+        document.getElementById('blackout-title').innerText = `[${currentSentenceIdx + 1}/${allSentences.length}] ${item.text}`;
+
+        function innerLoop() {
+          if (isStopped) return;
+          if (count >= TARGET_REPEAT) {
+            status.innerText = "1,000회 완료";
+            currentSentenceIdx++;
+            loopTimeout = setTimeout(playNextSentence, 800);
+            return;
+          }
+
+          count++;
+          status.innerText = `${count} / ${TARGET_REPEAT}`;
+          document.getElementById('blackout-counter').innerText = `${count} / ${TARGET_REPEAT}`;
+
+          const u = new SpeechSynthesisUtterance(item.text);
+          u.lang = 'en-US';
+          if (voice) u.voice = voice;
+          u.rate = speed;
+
+          u.onend = function() {
+            if (!isStopped && count < TARGET_REPEAT) {
+              const gap = Math.max(350, Math.floor(750 / speed));
+              loopTimeout = setTimeout(innerLoop, gap);
+            } else if (count >= TARGET_REPEAT) {
+              status.innerText = "1,000회 완료";
+              currentSentenceIdx++;
+              loopTimeout = setTimeout(playNextSentence, 800);
+            }
+          };
+
+          u.onerror = function() {
+            if (!isStopped && count < TARGET_REPEAT) {
+              loopTimeout = setTimeout(innerLoop, 500);
+            }
+          };
+
+          window.speechSynthesis.speak(u);
+        }
+
+        innerLoop();
+      }
+
+      playNextSentence();
+    }
+
+    function globalStop() {
+      isStopped = true;
+      clearTimeout(loopTimeout);
+      window.speechSynthesis.cancel();
+      document.querySelectorAll('.status-badge').forEach(b => {
+        if (b.innerText.includes('/')) b.innerText = "정지됨";
+      });
+      document.getElementById('blackout-counter').innerText = "정지됨";
+      document.getElementById('global-status').innerText = "⏹️ 정지됨";
+    }
+
+    // 마이크 STT 발음 평가
+    function practiceSpeech(targetText, fbid) {
+      globalStop();
+      const fb = document.getElementById(fbid);
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if (!SpeechRecognition) {
+        fb.innerText = "⚠️ 브라우저가 음성 인식을 지원하지 않습니다. (크롬/삼성인터넷 권장)";
+        return;
+      }
+
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      fb.innerText = "🎙️ 듣고 있습니다... 영어로 말해보세요!";
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        const cleanRec = transcript.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
+        const cleanTarget = targetText.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
+
+        if (cleanRec === cleanTarget) {
+          fb.innerHTML = `✅ 완벽합니다! 인식: "${transcript}"`;
+          fb.style.color = "#34d399";
+        } else {
+          fb.innerHTML = `🗣️ 인식: "${transcript}" (재도전!)`;
+          fb.style.color = "#f59e0b";
+        }
+      };
+
+      recognition.onerror = function(event) {
+        fb.innerText = "⚠️ 음성 인식 오류: " + event.error;
+      };
+
+      recognition.start();
+    }
+
+    // OLED 절전 모드
+    function enableBlackout() {
+      document.getElementById('dark-curtain').style.display = 'flex';
+      if ('wakeLock' in navigator) {
+        navigator.wakeLock.request('screen').catch(() => {});
+      }
+    }
+
+    function handleTap() {
+      const now = new Date().getTime();
+      if (now - lastTapTime < 350) {
+        document.getElementById('dark-curtain').style.display = 'none';
+      }
+      lastTapTime = now;
+    }
+
+    function renderUI() {
+      const container = document.getElementById('pattern-list');
+      container.innerHTML = "";
+
+      dataset.forEach((p, pIdx) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        let html = `<div class="pattern-title">${p.pattern}</div>`;
+
+        p.sentences.forEach((s, sIdx) => {
+          const eid = `en_${pIdx}_${sIdx}`;
+          const sid = `st_${pIdx}_${sIdx}`;
+          const gid = `gd_${pIdx}_${sIdx}`;
+          const spid = `sp_${pIdx}_${sIdx}`;
+          const fbid = `fb_${pIdx}_${sIdx}`;
+          const cleanEn = s.en.replace(/'/g, "\\'");
+
+          html += `
+            <div class="sentence-block">
+              <div class="ko-box">🇰🇷 ${s.ko}</div>
+              <div class="en-box hidden" id="${eid}">🇺🇸 ${s.en}</div>
+
+              <div class="ctrl-wrap">
+                <button class="btn btn-ans" onclick="toggleAnswer('${eid}', this)">👁️ 정답 확인</button>
+                <button class="btn btn-opt" id="${gid}" data-val="male" onclick="toggleGender(this)">👨 남성</button>
+                <button class="btn btn-opt" id="${spid}" data-val="0.85" onclick="toggleSpeed(this)">0.85x</button>
+                <button class="btn btn-mic" onclick="practiceSpeech('${cleanEn}', '${fbid}')">🎙️ 발음</button>
+                <button class="btn btn-play" onclick="start1000Loop('${cleanEn}', '${sid}', '${gid}', '${spid}')">▶ 1000회</button>
+                <button class="btn btn-stop" onclick="globalStop()">정지</button>
+                <span class="status-badge" id="${sid}"></span>
+                <div class="stt-feedback" id="${fbid}"></div>
+              </div>
+            </div>
+          `;
+        });
+
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+    }
+
+    renderUI();
+  </script>
+</body>
+</html>
