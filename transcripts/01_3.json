@@ -1,0 +1,122 @@
+[
+ {
+  "s": 4.08,
+  "e": 7.65,
+  "t": "노란 표지판에 도로에 대한 정보가 있어요."
+ },
+ {
+  "s": 10.45,
+  "e": 13.67,
+  "t": "A yellow sign gives information about a road."
+ },
+ {
+  "s": 13.87,
+  "e": 17.19,
+  "t": "A yellow sign gives information about a road."
+ },
+ {
+  "s": 20.94,
+  "e": 24.77,
+  "t": "이 호텔은 투숙객 300명이 잘 수 있어요."
+ },
+ {
+  "s": 27.63,
+  "e": 30.18,
+  "t": "The hotel sleeps 300 guests."
+ },
+ {
+  "s": 30.45,
+  "e": 33.25,
+  "t": "The hotel sleeps 300 guests."
+ },
+ {
+  "s": 37.17,
+  "e": 41.19,
+  "t": "치즈를 먹으면 수잔은 종종 속이 불편해요."
+ },
+ {
+  "s": 44.11,
+  "e": 46.47,
+  "t": "Cheese often upsets Susan's stomach."
+ },
+ {
+  "s": 46.8,
+  "e": 49.45,
+  "t": "Cheese often upsets Susan's stomach."
+ },
+ {
+  "s": 53.39,
+  "e": 55.46,
+  "t": "여긴 어쩐 일이세요?"
+ },
+ {
+  "s": 58.42,
+  "e": 59.59,
+  "t": "What brings you here?"
+ },
+ {
+  "s": 60.14,
+  "e": 61.45,
+  "t": "What brings you here?"
+ },
+ {
+  "s": 65.2,
+  "e": 67.24,
+  "t": "왜 이렇게 늦었어요?"
+ },
+ {
+  "s": 70.03,
+  "e": 71.49,
+  "t": "What took you so long?"
+ },
+ {
+  "s": 71.79,
+  "e": 73.57,
+  "t": "What took you so long?"
+ },
+ {
+  "s": 77.52,
+  "e": 79.78,
+  "t": "왜 이런 결론을 내렸어요?"
+ },
+ {
+  "s": 82.64,
+  "e": 84.65,
+  "t": "What led you to this conclusion?"
+ },
+ {
+  "s": 84.94,
+  "e": 87.33,
+  "t": "What led you to this conclusion?"
+ },
+ {
+  "s": 91.38,
+  "e": 94.57,
+  "t": "걸어서 1시간이면 우리 집에 도착할 거야."
+ },
+ {
+  "s": 97.33,
+  "e": 99.78,
+  "t": "An hour's walk will get you to my home."
+ },
+ {
+  "s": 100.08,
+  "e": 102.85,
+  "t": "An hour's walk will get you to my home."
+ },
+ {
+  "s": 106.67,
+  "e": 109.45,
+  "t": "태양은 우리에게 빛과 온기를 줘요."
+ },
+ {
+  "s": 112.18,
+  "e": 114.57,
+  "t": "The sun gives us light and warmth."
+ },
+ {
+  "s": 114.74,
+  "e": 117.38,
+  "t": "The sun gives us light and warmth."
+ }
+]

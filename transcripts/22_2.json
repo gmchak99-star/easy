@@ -1,0 +1,62 @@
+[
+ {
+  "s": 2.7,
+  "e": 5.57,
+  "t": "역으로 가는 길 좀 알려주시겠어요?"
+ },
+ {
+  "s": 8.3,
+  "e": 10.44,
+  "t": "Could you tell me the way to the station?"
+ },
+ {
+  "s": 10.7,
+  "e": 13.13,
+  "t": "Could you tell me the way to the station?"
+ },
+ {
+  "s": 17.01,
+  "e": 20.87,
+  "t": "죄송하지만 우리 약속 취소해야 할 것 같아요."
+ },
+ {
+  "s": 23.66,
+  "e": 27.08,
+  "t": "I'm afraid I am going to have to call off our appointment."
+ },
+ {
+  "s": 27.28,
+  "e": 30.69,
+  "t": "I'm afraid I am going to have to call off our appointment."
+ },
+ {
+  "s": 34.51,
+  "e": 38.15,
+  "t": "약속 일을 좀 더 일찍 잡아도 괜찮을까요?"
+ },
+ {
+  "s": 40.91,
+  "e": 44.01,
+  "t": "Do you mind if we make the appointment for an earlier time?"
+ },
+ {
+  "s": 44.34,
+  "e": 47.72,
+  "t": "Do you mind if we make the appointment for an earlier time?"
+ },
+ {
+  "s": 51.5,
+  "e": 53.48,
+  "t": "마실 것 좀 드릴까요?"
+ },
+ {
+  "s": 56.3,
+  "e": 58.09,
+  "t": "Would you like something to drink?"
+ },
+ {
+  "s": 58.35,
+  "e": 60.33,
+  "t": "Would you like something to drink?"
+ }
+]

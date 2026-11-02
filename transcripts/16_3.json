@@ -1,0 +1,122 @@
+[
+ {
+  "s": 4.43,
+  "e": 7.94,
+  "t": "톰은 방과 후 매일 테니스를 쳐요."
+ },
+ {
+  "s": 10.7,
+  "e": 13.57,
+  "t": "Tom plays tennis after school every day."
+ },
+ {
+  "s": 13.87,
+  "e": 16.68,
+  "t": "Tom plays tennis after school every day."
+ },
+ {
+  "s": 20.56,
+  "e": 23.37,
+  "t": "제인은 매일 톰을 기다려요."
+ },
+ {
+  "s": 26.19,
+  "e": 28.58,
+  "t": "Jane waits for Tom every day."
+ },
+ {
+  "s": 28.82,
+  "e": 31.24,
+  "t": "Jane waits for Tom every day."
+ },
+ {
+  "s": 35.06,
+  "e": 37.89,
+  "t": "물은 섭씨 0도에서 얼어요."
+ },
+ {
+  "s": 40.62,
+  "e": 43.4,
+  "t": "Water freezes at 0 degrees Celsius."
+ },
+ {
+  "s": 43.63,
+  "e": 46.66,
+  "t": "Water freezes at 0 degrees Celsius."
+ },
+ {
+  "s": 50.45,
+  "e": 51.97,
+  "t": "여기서 뭐하니?"
+ },
+ {
+  "s": 54.74,
+  "e": 56.13,
+  "t": "What are you doing here?"
+ },
+ {
+  "s": 56.4,
+  "e": 58.02,
+  "t": "What are you doing here?"
+ },
+ {
+  "s": 61.62,
+  "e": 63.85,
+  "t": "요새 살찌는 것 같아"
+ },
+ {
+  "s": 66.64,
+  "e": 68.04,
+  "t": "I'm gaining weight."
+ },
+ {
+  "s": 68.21,
+  "e": 69.8,
+  "t": "I'm gaining weight."
+ },
+ {
+  "s": 73.71,
+  "e": 77.48,
+  "t": "존은 매일 마포 가는 7번 버스를 타요."
+ },
+ {
+  "s": 80.34,
+  "e": 83.59,
+  "t": "John takes the number 7 bus to Mapo every day."
+ },
+ {
+  "s": 83.79,
+  "e": 87.33,
+  "t": "John takes the number 7 bus to Mapo every day."
+ },
+ {
+  "s": 91.15,
+  "e": 93.86,
+  "t": "메리는 지금 영어를 가르쳐요."
+ },
+ {
+  "s": 96.69,
+  "e": 98.85,
+  "t": "Mary is teaching English."
+ },
+ {
+  "s": 99.09,
+  "e": 101.16,
+  "t": "Mary is teaching English."
+ },
+ {
+  "s": 104.82,
+  "e": 108.49,
+  "t": "마리아는 매일 3시에 라디오를 들어요."
+ },
+ {
+  "s": 111.25,
+  "e": 114.69,
+  "t": "Maria listens to the radio at 3 o'clock every day."
+ },
+ {
+  "s": 114.93,
+  "e": 118.6,
+  "t": "Maria listens to the radio at 3 o'clock every day."
+ }
+]

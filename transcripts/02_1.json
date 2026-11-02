@@ -1,0 +1,67 @@
+[
+ {
+  "s": 2.16,
+  "e": 5.13,
+  "t": "우리말과 영어, 어떻게 다를까요?"
+ },
+ {
+  "s": 6.64,
+  "e": 8.42,
+  "t": "톰은 열이 나요."
+ },
+ {
+  "s": 11.25,
+  "e": 12.87,
+  "t": "Tom has a temperature."
+ },
+ {
+  "s": 13.14,
+  "e": 14.92,
+  "t": "Tom has a temperature."
+ },
+ {
+  "s": 18.74,
+  "e": 20.68,
+  "t": "나 감기 걸렸어요."
+ },
+ {
+  "s": 23.44,
+  "e": 24.87,
+  "t": "I've got a cold."
+ },
+ {
+  "s": 25.07,
+  "e": 26.73,
+  "t": "I've got a cold."
+ },
+ {
+  "s": 30.58,
+  "e": 33.93,
+  "t": "존은 제인에게 매일 아침 키스해요."
+ },
+ {
+  "s": 36.78,
+  "e": 39.24,
+  "t": "John gives Jane a kiss every morning."
+ },
+ {
+  "s": 39.54,
+  "e": 42.18,
+  "t": "John gives Jane a kiss every morning."
+ },
+ {
+  "s": 46.1,
+  "e": 50.44,
+  "t": "존은 수잔이 잠자리에 들 때 꼭 껴안아 주었어요."
+ },
+ {
+  "s": 53.26,
+  "e": 56.26,
+  "t": "John gave Susan a big hug at bedtime."
+ },
+ {
+  "s": 56.59,
+  "e": 59.69,
+  "t": "John gave Susan a big hug at bedtime."
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "s": 2.7,
+  "e": 5.25,
+  "t": "이 단어들은 어떻게 발음해요?"
+ },
+ {
+  "s": 8.05,
+  "e": 9.93,
+  "t": "How are these words pronounced?"
+ },
+ {
+  "s": 10.19,
+  "e": 12.26,
+  "t": "How are these words pronounced?"
+ },
+ {
+  "s": 16.08,
+  "e": 18.31,
+  "t": "수학 수업이 지루해요."
+ },
+ {
+  "s": 21.14,
+  "e": 23.11,
+  "t": "I am bored with the math class."
+ },
+ {
+  "s": 23.34,
+  "e": 25.54,
+  "t": "I am bored with the math class."
+ },
+ {
+  "s": 29.33,
+  "e": 33.03,
+  "t": "우리는 혼자 나가는 것이 허용되지 않아요."
+ },
+ {
+  "s": 35.76,
+  "e": 37.89,
+  "t": "We are not allowed to go out alone."
+ },
+ {
+  "s": 38.19,
+  "e": 40.58,
+  "t": "We are not allowed to go out alone."
+ },
+ {
+  "s": 44.5,
+  "e": 47.56,
+  "t": "수잔은 톰과 수영하라는 말을 들었어요."
+ },
+ {
+  "s": 50.42,
+  "e": 52.55,
+  "t": "Susan was told to swim with Tom."
+ },
+ {
+  "s": 52.82,
+  "e": 55.17,
+  "t": "Susan was told to swim with Tom."
+ }
+]

@@ -1,0 +1,122 @@
+[
+ {
+  "s": 3.7,
+  "e": 5.41,
+  "t": "이거 얼마예요?"
+ },
+ {
+  "s": 8.21,
+  "e": 9.54,
+  "t": "What's the price?"
+ },
+ {
+  "s": 9.78,
+  "e": 11.27,
+  "t": "What's the price?"
+ },
+ {
+  "s": 14.99,
+  "e": 17.29,
+  "t": "얼마까지 해주실 수 있어요?"
+ },
+ {
+  "s": 20.05,
+  "e": 21.61,
+  "t": "What's your best offer?"
+ },
+ {
+  "s": 21.87,
+  "e": 23.65,
+  "t": "What's your best offer?"
+ },
+ {
+  "s": 27.44,
+  "e": 30.21,
+  "t": "당신을 어떻게 부르면 될까요?"
+ },
+ {
+  "s": 32.94,
+  "e": 34.37,
+  "t": "What should I call you?"
+ },
+ {
+  "s": 34.61,
+  "e": 36.23,
+  "t": "What should I call you?"
+ },
+ {
+  "s": 40.02,
+  "e": 42.69,
+  "t": "왜 이렇게 전화를 늦게 받았어요?"
+ },
+ {
+  "s": 45.71,
+  "e": 48.01,
+  "t": "What took you so long to answer the phone?"
+ },
+ {
+  "s": 48.24,
+  "e": 50.92,
+  "t": "What took you so long to answer the phone?"
+ },
+ {
+  "s": 54.74,
+  "e": 57.09,
+  "t": "언제 방문하면 좋을까요?"
+ },
+ {
+  "s": 59.86,
+  "e": 61.93,
+  "t": "What's the best time to drop in?"
+ },
+ {
+  "s": 62.16,
+  "e": 64.55,
+  "t": "What's the best time to drop in?"
+ },
+ {
+  "s": 68.5,
+  "e": 70.79,
+  "t": "왜 그 일을 그만두었나요?"
+ },
+ {
+  "s": 73.58,
+  "e": 75.62,
+  "t": "What made you quit your job?"
+ },
+ {
+  "s": 75.79,
+  "e": 77.83,
+  "t": "What made you quit your job?"
+ },
+ {
+  "s": 81.62,
+  "e": 85.0,
+  "t": "이 도로에서 속도 제한은 얼마입니까?"
+ },
+ {
+  "s": 87.76,
+  "e": 90.12,
+  "t": "What's the speed limit on this road?"
+ },
+ {
+  "s": 90.35,
+  "e": 92.87,
+  "t": "What's the speed limit on this road?"
+ },
+ {
+  "s": 96.62,
+  "e": 98.44,
+  "t": "증상이 어떠세요?"
+ },
+ {
+  "s": 101.14,
+  "e": 102.79,
+  "t": "What are your symptoms?"
+ },
+ {
+  "s": 102.99,
+  "e": 104.84,
+  "t": "What are your symptoms?"
+ }
+]

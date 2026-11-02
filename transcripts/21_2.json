@@ -1,0 +1,62 @@
+[
+ {
+  "s": 2.96,
+  "e": 4.93,
+  "t": "내가 분명히 맞아"
+ },
+ {
+  "s": 7.66,
+  "e": 9.06,
+  "t": "You must be right."
+ },
+ {
+  "s": 9.26,
+  "e": 10.89,
+  "t": "You must be right."
+ },
+ {
+  "s": 14.74,
+  "e": 16.65,
+  "t": "존이 맞을지도 몰라."
+ },
+ {
+  "s": 19.44,
+  "e": 20.97,
+  "t": "John might be right."
+ },
+ {
+  "s": 21.26,
+  "e": 22.92,
+  "t": "John might be right."
+ },
+ {
+  "s": 26.77,
+  "e": 29.57,
+  "t": "다음 주에 미국에 갈지도 모르겠어"
+ },
+ {
+  "s": 32.34,
+  "e": 34.79,
+  "t": "I might be going to the US next week."
+ },
+ {
+  "s": 35.02,
+  "e": 37.7,
+  "t": "I might be going to the US next week."
+ },
+ {
+  "s": 41.46,
+  "e": 44.29,
+  "t": "음주 운전은 하면 안 돼요."
+ },
+ {
+  "s": 47.12,
+  "e": 48.9,
+  "t": "You mustn't drink and drive."
+ },
+ {
+  "s": 49.1,
+  "e": 51.14,
+  "t": "You mustn't drink and drive."
+ }
+]

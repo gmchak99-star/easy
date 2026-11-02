@@ -1,0 +1,62 @@
+[
+ {
+  "s": 2.86,
+  "e": 5.8,
+  "t": "제인은 이번 일요일에 교회에 가요."
+ },
+ {
+  "s": 8.62,
+  "e": 10.92,
+  "t": "Jane is going to church this Sunday."
+ },
+ {
+  "s": 11.18,
+  "e": 13.61,
+  "t": "Jane is going to church this Sunday."
+ },
+ {
+  "s": 17.58,
+  "e": 20.87,
+  "t": "비행기는 내일 오전 8시에 떠납니다."
+ },
+ {
+  "s": 23.7,
+  "e": 26.15,
+  "t": "The plane leaves at 8am tomorrow."
+ },
+ {
+  "s": 26.42,
+  "e": 29.03,
+  "t": "The plane leaves at 8am tomorrow."
+ },
+ {
+  "s": 32.98,
+  "e": 35.62,
+  "t": "수잔은 월요일에 치과에 가요."
+ },
+ {
+  "s": 38.48,
+  "e": 41.06,
+  "t": "Susan is visiting her dentist on Monday."
+ },
+ {
+  "s": 41.36,
+  "e": 44.26,
+  "t": "Susan is visiting her dentist on Monday."
+ },
+ {
+  "s": 48.11,
+  "e": 51.94,
+  "t": "그들은 제주 힐튼 호텔에서 묵을 예정이에요."
+ },
+ {
+  "s": 54.8,
+  "e": 57.41,
+  "t": "They're staying at the Jeju Hilton Hotel."
+ },
+ {
+  "s": 57.74,
+  "e": 60.42,
+  "t": "They are staying at the Jeju Hilton Hotel."
+ }
+]

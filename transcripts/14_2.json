@@ -1,0 +1,62 @@
+[
+ {
+  "s": 2.83,
+  "e": 5.13,
+  "t": "비자 신청은 어떻게 하나요?"
+ },
+ {
+  "s": 7.92,
+  "e": 10.41,
+  "t": "What are the procedures for getting a visa?"
+ },
+ {
+  "s": 10.67,
+  "e": 13.38,
+  "t": "What are the procedures for getting a visa?"
+ },
+ {
+  "s": 17.42,
+  "e": 19.24,
+  "t": "몸무게가 어떻게 되세요?"
+ },
+ {
+  "s": 22.03,
+  "e": 23.43,
+  "t": "What's your weight?"
+ },
+ {
+  "s": 23.66,
+  "e": 25.09,
+  "t": "What's your weight?"
+ },
+ {
+  "s": 28.88,
+  "e": 31.81,
+  "t": "도시를 돌아보려면 어떻게 하는 게 좋아요?"
+ },
+ {
+  "s": 34.64,
+  "e": 37.06,
+  "t": "What's a good way to get around the city?"
+ },
+ {
+  "s": 37.3,
+  "e": 39.91,
+  "t": "What's a good way to get around the city?"
+ },
+ {
+  "s": 43.66,
+  "e": 45.99,
+  "t": "버스 요금은 얼마입니까?"
+ },
+ {
+  "s": 48.78,
+  "e": 50.18,
+  "t": "What's the bus fare?"
+ },
+ {
+  "s": 50.45,
+  "e": 52.04,
+  "t": "What's the bus fare?"
+ }
+]

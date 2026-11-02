@@ -1,0 +1,122 @@
+[
+ {
+  "s": 4.5,
+  "e": 6.98,
+  "t": "자외선 차단제를 가져가렴."
+ },
+ {
+  "s": 9.74,
+  "e": 11.56,
+  "t": "You should bring sunscreen."
+ },
+ {
+  "s": 11.82,
+  "e": 13.7,
+  "t": "You should bring sunscreen."
+ },
+ {
+  "s": 17.49,
+  "e": 20.23,
+  "t": "내가 내일 공항에서 픽업할게요."
+ },
+ {
+  "s": 23.06,
+  "e": 25.16,
+  "t": "I will pick you up at the airport."
+ },
+ {
+  "s": 25.33,
+  "e": 27.65,
+  "t": "I will pick you up at the airport."
+ },
+ {
+  "s": 31.47,
+  "e": 34.63,
+  "t": "아마도 내일 배웅 나갈 수 있을 것 같아."
+ },
+ {
+  "s": 37.46,
+  "e": 39.33,
+  "t": "I might see you off tomorrow."
+ },
+ {
+  "s": 39.63,
+  "e": 41.73,
+  "t": "I might see you off tomorrow."
+ },
+ {
+  "s": 45.62,
+  "e": 48.04,
+  "t": "내일 배웅 나갈 수 있을 거야."
+ },
+ {
+  "s": 50.8,
+  "e": 52.77,
+  "t": "I may see you off tomorrow."
+ },
+ {
+  "s": 53.1,
+  "e": 55.24,
+  "t": "I may see you off tomorrow."
+ },
+ {
+  "s": 58.99,
+  "e": 61.38,
+  "t": "우리는 널 배웅하러 가야 해"
+ },
+ {
+  "s": 64.27,
+  "e": 65.64,
+  "t": "We should see you off."
+ },
+ {
+  "s": 66.0,
+  "e": 67.78,
+  "t": "We should see you off."
+ },
+ {
+  "s": 71.66,
+  "e": 74.15,
+  "t": "누군가 문에 있는 것 같아요."
+ },
+ {
+  "s": 77.01,
+  "e": 78.76,
+  "t": "Someone may be at the door."
+ },
+ {
+  "s": 79.18,
+  "e": 81.03,
+  "t": "Someone may be at the door."
+ },
+ {
+  "s": 84.88,
+  "e": 87.91,
+  "t": "누군가 분명히 저기 밖에 있어요"
+ },
+ {
+  "s": 90.8,
+  "e": 92.52,
+  "t": "Someone must be out there."
+ },
+ {
+  "s": 92.85,
+  "e": 94.69,
+  "t": "Someone must be out there."
+ },
+ {
+  "s": 98.51,
+  "e": 101.41,
+  "t": "누군가 분명히 거기 있었어요."
+ },
+ {
+  "s": 104.37,
+  "e": 105.93,
+  "t": "Someone must have been there."
+ },
+ {
+  "s": 106.22,
+  "e": 108.01,
+  "t": "Someone must have been there."
+ }
+]

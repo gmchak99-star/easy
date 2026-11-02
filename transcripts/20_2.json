@@ -1,0 +1,62 @@
+[
+ {
+  "s": 2.9,
+  "e": 5.89,
+  "t": "존은 운전 중에 전화를 받았어요."
+ },
+ {
+  "s": 8.72,
+  "e": 11.49,
+  "t": "John answered the phone in the middle of driving."
+ },
+ {
+  "s": 11.82,
+  "e": 14.76,
+  "t": "John answered the phone in the middle of driving."
+ },
+ {
+  "s": 18.67,
+  "e": 21.93,
+  "t": "그 소식을 듣자 난 마음이 바뀌었어."
+ },
+ {
+  "s": 24.72,
+  "e": 27.46,
+  "t": "On hearing the news I changed my mind."
+ },
+ {
+  "s": 27.7,
+  "e": 30.66,
+  "t": "On hearing the news I changed my mind."
+ },
+ {
+  "s": 34.35,
+  "e": 39.4,
+  "t": "제인은 그 호텔에 도착하자 불꽃놀이를 보고 깜짝 놀랐어요."
+ },
+ {
+  "s": 42.29,
+  "e": 46.41,
+  "t": "Jane was surprised to see the fireworks on her arrival at the hotel."
+ },
+ {
+  "s": 46.74,
+  "e": 51.01,
+  "t": "Jane was surprised to see the fireworks on her arrival at the hotel."
+ },
+ {
+  "s": 55.25,
+  "e": 57.41,
+  "t": "5분이면 도착할 거야."
+ },
+ {
+  "s": 60.14,
+  "e": 62.31,
+  "t": "I will be there in just 5 minutes."
+ },
+ {
+  "s": 62.58,
+  "e": 65.03,
+  "t": "I will be there in just 5 minutes."
+ }
+]

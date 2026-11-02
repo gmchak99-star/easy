@@ -1,0 +1,62 @@
+[
+ {
+  "s": 2.86,
+  "e": 5.48,
+  "t": "내일 수영하러 갈 생각이에요."
+ },
+ {
+  "s": 8.3,
+  "e": 10.05,
+  "t": "I'm going to swim tomorrow."
+ },
+ {
+  "s": 10.38,
+  "e": 12.39,
+  "t": "I am going to swim tomorrow."
+ },
+ {
+  "s": 16.3,
+  "e": 18.6,
+  "t": "응, 내가 지금 태워 줄게."
+ },
+ {
+  "s": 21.46,
+  "e": 24.1,
+  "t": "Well, I will give you a ride right now."
+ },
+ {
+  "s": 24.37,
+  "e": 27.14,
+  "t": "Well, I will give you a ride right now."
+ },
+ {
+  "s": 31.02,
+  "e": 33.64,
+  "t": "내가 네 숙제를 도와줄게."
+ },
+ {
+  "s": 36.4,
+  "e": 38.15,
+  "t": "I will help you with your homework."
+ },
+ {
+  "s": 38.42,
+  "e": 40.36,
+  "t": "I will help you with your homework."
+ },
+ {
+  "s": 44.24,
+  "e": 47.08,
+  "t": "톰은 크면 배우가 될 생각이에요."
+ },
+ {
+  "s": 49.87,
+  "e": 52.52,
+  "t": "Tom is going to be an actor when he grows up."
+ },
+ {
+  "s": 52.82,
+  "e": 55.46,
+  "t": "Tom is going to be an actor when he grows up."
+ }
+]

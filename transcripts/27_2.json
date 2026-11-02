@@ -1,0 +1,62 @@
+[
+ {
+  "s": 3.02,
+  "e": 5.48,
+  "t": "제인은 어제 파마를 했어요."
+ },
+ {
+  "s": 8.4,
+  "e": 10.82,
+  "t": "Jane had her hair permed yesterday."
+ },
+ {
+  "s": 11.09,
+  "e": 13.57,
+  "t": "Jane had her hair permed yesterday."
+ },
+ {
+  "s": 17.39,
+  "e": 21.64,
+  "t": "제인은 수잔에게 제인의 앞머리를 자르라고 시켰어요."
+ },
+ {
+  "s": 24.43,
+  "e": 26.73,
+  "t": "Jane had Susan cut her bangs."
+ },
+ {
+  "s": 26.99,
+  "e": 29.38,
+  "t": "Jane had Susan cut her bangs."
+ },
+ {
+  "s": 33.23,
+  "e": 36.93,
+  "t": "제인은 톰에게 유리창을 닦으라고 시켰어요."
+ },
+ {
+  "s": 39.79,
+  "e": 42.18,
+  "t": "Jane got Tom to wash the windows."
+ },
+ {
+  "s": 42.42,
+  "e": 45.06,
+  "t": "Jane got Tom to wash the windows."
+ },
+ {
+  "s": 48.91,
+  "e": 52.65,
+  "t": "존은 빌이 곧 한국을 방문하길 바라요."
+ },
+ {
+  "s": 55.54,
+  "e": 58.02,
+  "t": "John hopes Bill will visit Korea soon."
+ },
+ {
+  "s": 58.35,
+  "e": 61.06,
+  "t": "John hopes Bill will visit Korea soon."
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "s": 2.8,
+  "e": 4.36,
+  "t": "뭘 찾고 있니?"
+ },
+ {
+  "s": 7.12,
+  "e": 8.58,
+  "t": "What are you looking for?"
+ },
+ {
+  "s": 8.88,
+  "e": 10.57,
+  "t": "What are you looking for?"
+ },
+ {
+  "s": 14.51,
+  "e": 17.06,
+  "t": "제가 너무 늦게 전화하는 건가요?"
+ },
+ {
+  "s": 19.86,
+  "e": 21.45,
+  "t": "Am I calling too late?"
+ },
+ {
+  "s": 21.65,
+  "e": 23.4,
+  "t": "Am I calling too late?"
+ },
+ {
+  "s": 27.15,
+  "e": 29.57,
+  "t": "메리는 영어를 가르쳐요."
+ },
+ {
+  "s": 32.34,
+  "e": 33.99,
+  "t": "Mary teaches English."
+ },
+ {
+  "s": 34.29,
+  "e": 36.13,
+  "t": "Mary teaches English."
+ },
+ {
+  "s": 39.92,
+  "e": 42.5,
+  "t": "톰! 너 너무 시끄럽구나."
+ },
+ {
+  "s": 45.33,
+  "e": 47.33,
+  "t": "Tom, you're being too loud."
+ },
+ {
+  "s": 47.73,
+  "e": 49.96,
+  "t": "Tom, you are being too loud."
+ }
+]

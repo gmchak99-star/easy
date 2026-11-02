@@ -1,0 +1,62 @@
+[
+ {
+  "s": 2.58,
+  "e": 5.57,
+  "t": "그 사람한테 전화 받으라고 해주세요."
+ },
+ {
+  "s": 8.4,
+  "e": 10.21,
+  "t": "Would you put him on the line?"
+ },
+ {
+  "s": 10.45,
+  "e": 12.36,
+  "t": "Would you put him on the line?"
+ },
+ {
+  "s": 16.18,
+  "e": 19.69,
+  "t": "뒤에 차가 한 대 막고 있어서 나갈 수가 없어요."
+ },
+ {
+  "s": 22.51,
+  "e": 24.68,
+  "t": "The car behind me blocked me in."
+ },
+ {
+  "s": 24.88,
+  "e": 27.37,
+  "t": "The car behind me blocked me in."
+ },
+ {
+  "s": 31.09,
+  "e": 32.97,
+  "t": "존은 내일 쉬어요."
+ },
+ {
+  "s": 35.79,
+  "e": 37.8,
+  "t": "John is going to take tomorrow off."
+ },
+ {
+  "s": 38.16,
+  "e": 40.55,
+  "t": "John is going to take tomorrow off."
+ },
+ {
+  "s": 44.66,
+  "e": 48.87,
+  "t": "톰은 수잔을 그 이상한 계획에 끌어들였어요."
+ },
+ {
+  "s": 51.66,
+  "e": 54.44,
+  "t": "Tom talks Susan into the nutty plan."
+ },
+ {
+  "s": 54.74,
+  "e": 57.41,
+  "t": "Tom talks Susan into the nutty plan."
+ }
+]

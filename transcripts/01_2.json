@@ -1,0 +1,62 @@
+[
+ {
+  "s": 3.22,
+  "e": 5.77,
+  "t": "지도에 우회전하라고 되어 있어요."
+ },
+ {
+  "s": 8.59,
+  "e": 10.73,
+  "t": "The map says to turn right."
+ },
+ {
+  "s": 10.93,
+  "e": 13.19,
+  "t": "The map says to turn right."
+ },
+ {
+  "s": 17.39,
+  "e": 20.33,
+  "t": "표지판에 '출입 금지'라고 써 있어요."
+ },
+ {
+  "s": 23.15,
+  "e": 25.22,
+  "t": "The sign says \"Keep Out\"."
+ },
+ {
+  "s": 25.39,
+  "e": 27.56,
+  "t": "The sign says \"Keep Out\"."
+ },
+ {
+  "s": 31.7,
+  "e": 33.25,
+  "t": "10달러 들었어요."
+ },
+ {
+  "s": 35.98,
+  "e": 37.96,
+  "t": "It cost me ten dollars."
+ },
+ {
+  "s": 38.19,
+  "e": 40.29,
+  "t": "It cost me $10."
+ },
+ {
+  "s": 44.05,
+  "e": 46.79,
+  "t": "이 길을 따라가면 역이 나와요."
+ },
+ {
+  "s": 49.58,
+  "e": 51.88,
+  "t": "This street will lead you to the station."
+ },
+ {
+  "s": 52.21,
+  "e": 54.69,
+  "t": "This street will lead you to the station."
+ }
+]

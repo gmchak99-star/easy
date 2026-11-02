@@ -1,0 +1,67 @@
+[
+ {
+  "s": 2.03,
+  "e": 5.06,
+  "t": "우리말과 영어, 어떻게 다른가요?"
+ },
+ {
+  "s": 6.45,
+  "e": 8.9,
+  "t": "데이비드는 모자를 벗었어요."
+ },
+ {
+  "s": 11.76,
+  "e": 13.35,
+  "t": "David took his hat off."
+ },
+ {
+  "s": 13.55,
+  "e": 15.43,
+  "t": "David took his hat off."
+ },
+ {
+  "s": 19.31,
+  "e": 22.37,
+  "t": "수잔은 초콜릿 한 조각을 떼어 냈어요."
+ },
+ {
+  "s": 25.23,
+  "e": 27.59,
+  "t": "Susan broke off a piece of chocolate."
+ },
+ {
+  "s": 27.82,
+  "e": 30.47,
+  "t": "Susan broke off a piece of chocolate."
+ },
+ {
+  "s": 34.26,
+  "e": 37.0,
+  "t": "마리아는 자기 전에 불을 껐어요."
+ },
+ {
+  "s": 39.76,
+  "e": 42.85,
+  "t": "Maria turned the light off before going to sleep."
+ },
+ {
+  "s": 43.02,
+  "e": 46.18,
+  "t": "Maria turned the light off before going to sleep."
+ },
+ {
+  "s": 50.06,
+  "e": 53.8,
+  "t": "존은 수잔에게서 초콜릿을 빼앗았어요."
+ },
+ {
+  "s": 56.62,
+  "e": 59.49,
+  "t": "John took the chocolate away from Susan."
+ },
+ {
+  "s": 59.73,
+  "e": 62.66,
+  "t": "John took the chocolate away from Susan."
+ }
+]

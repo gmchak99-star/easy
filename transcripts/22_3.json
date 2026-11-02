@@ -1,0 +1,122 @@
+[
+ {
+  "s": 4.3,
+  "e": 5.67,
+  "t": "조용히 해"
+ },
+ {
+  "s": 8.43,
+  "e": 9.64,
+  "t": "Be quiet."
+ },
+ {
+  "s": 9.81,
+  "e": 11.14,
+  "t": "Be quiet."
+ },
+ {
+  "s": 14.93,
+  "e": 16.74,
+  "t": "조용히 해 주시겠습니까"
+ },
+ {
+  "s": 19.54,
+  "e": 21.32,
+  "t": "Would you please be quiet?"
+ },
+ {
+  "s": 21.55,
+  "e": 23.43,
+  "t": "Would you please be quiet?"
+ },
+ {
+  "s": 26.16,
+  "e": 28.84,
+  "t": "펜 좀 쓸 수 있어?"
+ },
+ {
+  "s": 31.63,
+  "e": 33.13,
+  "t": "Can I use your pen?"
+ },
+ {
+  "s": 33.39,
+  "e": 34.82,
+  "t": "Can I use your pen?"
+ },
+ {
+  "s": 38.64,
+  "e": 41.61,
+  "t": "펜 좀 잠깐 빌려도 괜찮은지요?"
+ },
+ {
+  "s": 44.37,
+  "e": 47.46,
+  "t": "I was wondering if I could borrow your pen for a moment."
+ },
+ {
+  "s": 47.73,
+  "e": 51.17,
+  "t": "I was wondering if I could borrow your pen for a moment."
+ },
+ {
+  "s": 53.87,
+  "e": 56.58,
+  "t": "다시 얘기해줘요."
+ },
+ {
+  "s": 59.41,
+  "e": 60.9,
+  "t": "Can you say that again?"
+ },
+ {
+  "s": 61.17,
+  "e": 62.69,
+  "t": "Can you say that again?"
+ },
+ {
+  "s": 66.67,
+  "e": 70.09,
+  "t": "죄송합니다만 다시 얘기해 주실 수 있어요?"
+ },
+ {
+  "s": 72.85,
+  "e": 75.33,
+  "t": "Sorry, could you say that again please?"
+ },
+ {
+  "s": 75.66,
+  "e": 78.21,
+  "t": "Sorry, could you say that again please?"
+ },
+ {
+  "s": 81.94,
+  "e": 85.06,
+  "t": "그 사람의 음악을 별로 좋아하지 않는데요."
+ },
+ {
+  "s": 87.89,
+  "e": 90.02,
+  "t": "I'm afraid I don't like his music."
+ },
+ {
+  "s": 90.19,
+  "e": 92.39,
+  "t": "I'm afraid I don't like his music."
+ },
+ {
+  "s": 96.08,
+  "e": 98.31,
+  "t": "글쎄 잘 모르겠는데요"
+ },
+ {
+  "s": 101.07,
+  "e": 102.98,
+  "t": "I'm afraid I have no idea."
+ },
+ {
+  "s": 103.25,
+  "e": 105.35,
+  "t": "I'm afraid I have no idea."
+ }
+]

@@ -1,0 +1,122 @@
+[
+ {
+  "s": 4.11,
+  "e": 7.01,
+  "t": "아침 9시에 수업이 있어요."
+ },
+ {
+  "s": 9.81,
+  "e": 12.33,
+  "t": "Tom has a class at 9 in the morning."
+ },
+ {
+  "s": 12.66,
+  "e": 15.43,
+  "t": "Tom has a class at 9 in the morning."
+ },
+ {
+  "s": 19.38,
+  "e": 20.93,
+  "t": "좀 쉬세요"
+ },
+ {
+  "s": 23.76,
+  "e": 24.97,
+  "t": "Get some rest."
+ },
+ {
+  "s": 25.26,
+  "e": 26.79,
+  "t": "Get some rest."
+ },
+ {
+  "s": 30.64,
+  "e": 31.88,
+  "t": "앉으세요"
+ },
+ {
+  "s": 34.61,
+  "e": 35.72,
+  "t": "Have a seat."
+ },
+ {
+  "s": 35.98,
+  "e": 37.29,
+  "t": "Have a seat."
+ },
+ {
+  "s": 41.14,
+  "e": 42.92,
+  "t": "좋은 시간 보내세요."
+ },
+ {
+  "s": 45.68,
+  "e": 46.98,
+  "t": "Have a good time!"
+ },
+ {
+  "s": 47.31,
+  "e": 48.74,
+  "t": "Have a good time!"
+ },
+ {
+  "s": 52.56,
+  "e": 54.73,
+  "t": "마리아는 혈압이 낮아요."
+ },
+ {
+  "s": 57.46,
+  "e": 59.62,
+  "t": "Maria has low blood pressure."
+ },
+ {
+  "s": 59.82,
+  "e": 62.21,
+  "t": "Maria has low blood pressure."
+ },
+ {
+  "s": 66.19,
+  "e": 69.13,
+  "t": "톰은 베여서 피를 많이 흘렸어요."
+ },
+ {
+  "s": 71.92,
+  "e": 74.82,
+  "t": "Tom cut himself and lost a lot of blood."
+ },
+ {
+  "s": 75.09,
+  "e": 78.02,
+  "t": "Tom cut himself and lost a lot of blood."
+ },
+ {
+  "s": 81.84,
+  "e": 84.23,
+  "t": "이 방은 전망이 좋아요."
+ },
+ {
+  "s": 87.02,
+  "e": 89.13,
+  "t": "This room has a beautiful view."
+ },
+ {
+  "s": 89.3,
+  "e": 91.72,
+  "t": "This room has a beautiful view."
+ },
+ {
+  "s": 95.47,
+  "e": 97.19,
+  "t": "소리 내지 마세요."
+ },
+ {
+  "s": 99.98,
+  "e": 101.48,
+  "t": "Don't make a sound."
+ },
+ {
+  "s": 101.71,
+  "e": 103.46,
+  "t": "Don't make a sound."
+ }
+]

@@ -1,0 +1,122 @@
+[
+ {
+  "s": 4.5,
+  "e": 8.13,
+  "t": "존은 시간 내에 도착하려고 서두르고 있어요."
+ },
+ {
+  "s": 10.96,
+  "e": 13.32,
+  "t": "John is hurrying to get there in time."
+ },
+ {
+  "s": 13.62,
+  "e": 16.23,
+  "t": "John is hurrying to get there in time."
+ },
+ {
+  "s": 20.02,
+  "e": 23.4,
+  "t": "존의 결혼기념일이 얼마 안 남았습니다."
+ },
+ {
+  "s": 26.22,
+  "e": 29.19,
+  "t": "John's wedding anniversary is just around the corner."
+ },
+ {
+  "s": 29.52,
+  "e": 32.84,
+  "t": "John's wedding anniversary is just around the corner."
+ },
+ {
+  "s": 36.78,
+  "e": 40.84,
+  "t": "존은 10년 전 첫눈에 제인과 사랑에 빠졌어요."
+ },
+ {
+  "s": 43.63,
+  "e": 47.14,
+  "t": "Ten years ago, John fell in love with Jane at first sight."
+ },
+ {
+  "s": 47.44,
+  "e": 51.37,
+  "t": "Ten years ago, John fell in love with Jane at first sight."
+ },
+ {
+  "s": 55.22,
+  "e": 57.89,
+  "t": "제시간에 맞춰 와요. 늦지 말고."
+ },
+ {
+  "s": 60.72,
+  "e": 63.14,
+  "t": "Please be on time, don't be late."
+ },
+ {
+  "s": 63.41,
+  "e": 66.25,
+  "t": "Please be on time, don't be late."
+ },
+ {
+  "s": 69.9,
+  "e": 74.92,
+  "t": "제인이 그 호텔에 도착했을 땐 이미 불꽃놀이가 시작되었어요"
+ },
+ {
+  "s": 77.74,
+  "e": 81.61,
+  "t": "By the time Jane got to the hotel, the fireworks had started."
+ },
+ {
+  "s": 81.87,
+  "e": 85.77,
+  "t": "By the time Jane got to the hotel, the fireworks had started."
+ },
+ {
+  "s": 89.71,
+  "e": 92.52,
+  "t": "존은 막 퇴근하려는 참입니다."
+ },
+ {
+  "s": 95.41,
+  "e": 97.64,
+  "t": "John is on the point of leaving work."
+ },
+ {
+  "s": 97.87,
+  "e": 100.33,
+  "t": "John is on the point of leaving work."
+ },
+ {
+  "s": 104.11,
+  "e": 107.21,
+  "t": "존은 막 사무실을 떠나려는 참이에요."
+ },
+ {
+  "s": 109.97,
+  "e": 112.2,
+  "t": "John is about to leave the office."
+ },
+ {
+  "s": 112.5,
+  "e": 114.92,
+  "t": "John is about to leave the office."
+ },
+ {
+  "s": 118.67,
+  "e": 121.32,
+  "t": "제인도 막 나가려 하고 있어요."
+ },
+ {
+  "s": 124.18,
+  "e": 126.82,
+  "t": "Jane is also on the point of going out."
+ },
+ {
+  "s": 127.09,
+  "e": 129.83,
+  "t": "Jane is also on the point of going out."
+ }
+]

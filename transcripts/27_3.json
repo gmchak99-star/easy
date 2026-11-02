@@ -1,0 +1,122 @@
+[
+ {
+  "s": 4.5,
+  "e": 6.89,
+  "t": "한국을 곧 방문하고 싶어요"
+ },
+ {
+  "s": 9.65,
+  "e": 11.56,
+  "t": "I wish to visit Korea soon."
+ },
+ {
+  "s": 11.76,
+  "e": 13.96,
+  "t": "I wish to visit Korea soon."
+ },
+ {
+  "s": 17.78,
+  "e": 20.93,
+  "t": "나는 제인에게 내 계획을 말할래요."
+ },
+ {
+  "s": 23.76,
+  "e": 25.7,
+  "t": "I will tell Jane my plan."
+ },
+ {
+  "s": 26.0,
+  "e": 28.04,
+  "t": "I will tell Jane my plan."
+ },
+ {
+  "s": 31.89,
+  "e": 34.25,
+  "t": "내가 지금 떠나기를 원해요?"
+ },
+ {
+  "s": 37.04,
+  "e": 38.66,
+  "t": "Do you wish me to leave now?"
+ },
+ {
+  "s": 38.99,
+  "e": 40.93,
+  "t": "Do you wish me to leave now?"
+ },
+ {
+  "s": 44.69,
+  "e": 47.97,
+  "t": "엄마, 이 문이 제대로 안 닫혀요."
+ },
+ {
+  "s": 50.8,
+  "e": 53.83,
+  "t": "Mom, I can't get this door to shut properly."
+ },
+ {
+  "s": 54.03,
+  "e": 57.25,
+  "t": "Mom, I can't get this door to shut properly."
+ },
+ {
+  "s": 61.1,
+  "e": 62.82,
+  "t": "너 머리 잘랐구나."
+ },
+ {
+  "s": 65.58,
+  "e": 67.01,
+  "t": "You've had your hair cut."
+ },
+ {
+  "s": 67.18,
+  "e": 68.93,
+  "t": "You've had your hair cut."
+ },
+ {
+  "s": 72.75,
+  "e": 75.62,
+  "t": "너 머리 좀 자르는 게 좋겠다."
+ },
+ {
+  "s": 78.38,
+  "e": 79.97,
+  "t": "You should get your hair cut."
+ },
+ {
+  "s": 80.18,
+  "e": 81.93,
+  "t": "You should get your hair cut."
+ },
+ {
+  "s": 85.62,
+  "e": 89.8,
+  "t": "슈퍼마켓에서 설탕 사야 한다고 좀 상기시켜 줄래요?"
+ },
+ {
+  "s": 92.56,
+  "e": 95.53,
+  "t": "Can you remind me to buy some sugar at the supermarket?"
+ },
+ {
+  "s": 95.76,
+  "e": 99.11,
+  "t": "Can you remind me to buy some sugar at the supermarket?"
+ },
+ {
+  "s": 102.7,
+  "e": 105.86,
+  "t": "존이 오늘 5시에 여기로 오게 해 주세요."
+ },
+ {
+  "s": 108.62,
+  "e": 110.69,
+  "t": "Have John come here at five."
+ },
+ {
+  "s": 110.9,
+  "e": 113.09,
+  "t": "Have John come here at five."
+ }
+]
