@@ -1,5 +1,5 @@
 /* 오프라인 재생용 서비스 워커: 화면 파일은 최신 우선, 음성은 저장해 둔 것을 우선 사용 */
-var SHELL = 'pr-shell-v1';
+var SHELL = 'pr-shell-v2';
 var AUDIO = 'pr-audio-v1';
 var SHELL_FILES = ['./', 'index.html', 'style.css', 'app.js', 'data.js', 'manifest.json', 'icon-192.png', 'icon-512.png'];
 

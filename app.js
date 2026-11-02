@@ -32,6 +32,7 @@
     speed: LS.get('pr_speed', 1),
     repeat: LS.get('pr_repeat', 1),   // 0 = infinite
     loop: LS.get('pr_loop', false),
+    en: LS.get('pr_en', false),       // 영어 음성만 재생(한국어 구간 건너뜀)
     auto: LS.get('pr_auto', true),
     compact: LS.get('pr_compact', null),
     sleepMin: 0, sleepEnd: 0,
@@ -81,7 +82,7 @@
     h += '<p class="partname">' + esc(part.title) + '</p>';
     h += '<header class="ph"><span class="no">원리 ' + p.num + '</span></header>';
     h += '<h1 class="title-big">' + esc(p.title) + '</h1>';
-    h += '<div class="audiobar"><button class="kotgl" id="txTgl" aria-pressed="false">글자 가리기</button></div>';
+    h += '<div class="audiobar"><button class="kotgl" id="enTgl" aria-pressed="false">🔊 영어만 듣기</button><button class="kotgl" id="txTgl" aria-pressed="false">글자 가리기</button></div>';
     p.stages.forEach(function (sg, i) {
       var S0 = STAGES[i];
       h += '<section class="stage" data-stage="' + S0.n + '"><div class="sh"><h2><span class="sn">' + S0.n + '</span>' + esc(S0.name) + '</h2>';
@@ -109,6 +110,7 @@
     setToc(false);
     LS.set('pr_view', p.key);
     applyHide();
+    applyEnBtn();
     highlight();
   }
 
@@ -122,13 +124,24 @@
   function buildUnits(key, stage) {
     var sg = byKey[key].stages[stage - 1];
     if (!sg.a) return [];
-    if (sg.t.length) return sg.t.map(function (r, i) { return { i: i, s: r[0], e: r[1], text: r[2] }; });
+    if (sg.t.length) {
+      var all = sg.t.map(function (r, i) { return { i: i, s: r[0], e: r[1], text: r[2] }; });
+      if (st.en) {
+        var onlyEn = all.filter(function (u) { return !/[가-힣]/.test(u.text); });
+        if (onlyEn.length) return onlyEn;
+      }
+      return all;
+    }
     return [{ i: 0, s: 0, e: Infinity, text: STAGES[stage - 1].name + ' (전체 음성)' }];
+  }
+  function unitIndexFor(units, i) {   // 문장 번호 i 이상 중 가장 가까운 재생 구간
+    for (var k = 0; k < units.length; k++) if (units[k].i >= i) return k;
+    return Math.max(0, units.length - 1);
   }
   function posMap() { return LS.get('pr_pos', {}); }
   function savePos() {
     if (!st.key) return;
-    var m = posMap(); m[st.key + '|' + st.stage] = st.u; LS.set('pr_pos', m);
+    var m = posMap(); m[st.key + '|' + st.stage + (st.en ? '|en' : '')] = st.u; LS.set('pr_pos', m);
     LS.set('pr_last', { key: st.key, stage: st.stage, u: st.u });
   }
   function audioSrc(key, stage) { return 'audio/' + byKey[key].num + '_' + stage + '.mp3'; }
@@ -314,6 +327,7 @@
     $('bLoop').setAttribute('aria-pressed', st.loop ? 'true' : 'false');
     $('bAuto').setAttribute('aria-pressed', st.auto ? 'true' : 'false');
     $('bSleep').textContent = sleepLabel();
+    applyEnBtn();
     var sp = document.querySelectorAll('.speed');
     for (var i = 0; i < sp.length; i++) sp[i].setAttribute('aria-pressed', parseFloat(sp[i].getAttribute('data-rate')) === st.speed ? 'true' : 'false');
   }
@@ -425,18 +439,37 @@
     }).catch(function () { msg.textContent = '저장할 수 없었어요.'; $('offBtn').disabled = false; });
   }
 
+  function setEn(on) {
+    st.en = !!on; LS.set('pr_en', st.en);
+    if (st.key && st.units.length) {
+      var cur = st.units[st.u].i;
+      st.units = buildUnits(st.key, st.stage);
+      st.u = unitIndexFor(st.units, cur); st.played = 0;
+      seek(st.units[st.u].s);
+      if (audio.paused && st.wantPlay) play();
+      savePos();
+    }
+    updateUI(); applyEnBtn();
+    toast(st.en ? '영어 음성만 들려요. (한국어 구간은 건너뛰어요)' : '한국어+영어 모두 들려요.');
+  }
+  function applyEnBtn() {
+    var b = $('bEn'); if (b) b.setAttribute('aria-pressed', st.en ? 'true' : 'false');
+    var t = $('enTgl'); if (t) { t.setAttribute('aria-pressed', st.en ? 'true' : 'false'); t.classList.toggle('on', st.en); t.textContent = st.en ? '🔊 영어만 듣는 중' : '🔊 영어만 듣기'; }
+  }
+
   /* ---------- events ---------- */
   function startStage(key, stage, fromU) {
-    var saved = posMap()[key + '|' + stage];
+    var saved = posMap()[key + '|' + stage + (st.en ? '|en' : '')];
     var n = buildUnits(key, stage).length;
     var u = 0, resumed = false;
-    if (typeof fromU === 'number') u = fromU;
+    if (typeof fromU === 'number') u = unitIndexFor(buildUnits(key, stage), fromU);
     else if (typeof saved === 'number' && saved > 0 && saved < n) { u = saved; resumed = true; }
     load(key, stage, u, true);
     if (resumed) toast('멈춘 곳(' + (u + 1) + '번째)부터 이어서 재생해요.', '처음부터', function () { goUnit(0); });
   }
 
   $('content').addEventListener('click', function (e) {
+    if (e.target.id === 'enTgl') { setEn(!st.en); return; }
     if (e.target.id === 'txTgl') { LS.set('pr_hide', LS.get('pr_hide', '0') === '1' ? '0' : '1'); applyHide(); return; }
     var b = e.target.closest('.abtn');
     if (b && !b.disabled && st.viewKey) {
@@ -452,7 +485,7 @@
     var li = e.target.closest('.seg li');
     if (li && st.viewKey) {
       var s2 = parseInt(li.getAttribute('data-stage'), 10), i = parseInt(li.getAttribute('data-i'), 10);
-      if (st.key === st.viewKey && st.stage === s2) { st.wantPlay = true; goUnit(i); play(); }
+      if (st.key === st.viewKey && st.stage === s2) { st.wantPlay = true; goUnit(unitIndexFor(st.units, i)); play(); }
       else startStage(st.viewKey, s2, i);
     }
   });
@@ -464,6 +497,7 @@
   $('bPlay').onclick = toggle; $('fPlay').onclick = toggle;
   $('bPrev').onclick = prev; $('fPrev').onclick = prev;
   $('bNext').onclick = next; $('fNext').onclick = next;
+  $('bEn').onclick = function () { setEn(!st.en); };
   $('bRestart').onclick = function () { if (st.key) { st.wantPlay = true; goUnit(0); play(); } };
   $('bFull').onclick = openFs;
   $('bMore').onclick = function () { st.compact = !st.compact; LS.set('pr_compact', st.compact); applyCompact(); };
